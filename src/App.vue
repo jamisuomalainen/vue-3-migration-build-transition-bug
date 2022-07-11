@@ -6,10 +6,10 @@
 
     <Transition
       enter-active-class="transition-duration"
-      enter-class="opacity-0"
+      enter-from-class="opacity-0"
       enter-to-class="opacity-100"
       leave-active-class="transition-duration"
-      leave-class="opacity-100"
+      leave-from-class="opacity-100"
       leave-to-class="opacity-0"
     >
       <p v-if="showText">
