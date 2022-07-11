@@ -1,28 +1,42 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <button type="button" @click="showText = !showText">
+      Toggle text
+    </button>
+
+    <Transition
+      enter-active-class="transition-duration"
+      enter-class="opacity-0"
+      enter-to-class="opacity-100"
+      leave-active-class="transition-duration"
+      leave-class="opacity-100"
+      leave-to-class="opacity-0"
+    >
+      <p v-if="showText">
+        The quick brown fox jumps over the lazy dog
+      </p>
+    </Transition>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+  data: () => ({
+    showText: true
+  })
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.transition-duration {
+  transition-duration: 500ms;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-100 {
+  opacity: 100;
 }
 </style>
